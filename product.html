@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Danh sách sản phẩm</h2>
+        <div class="row" id="product-list">
+            <!-- Sản phẩm sẽ được thêm vào đây bằng JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            { name: "Sản phẩm 1", price: "20.000.000đ", image: "./image/product1.jpg" },
+            { name: "Sản phẩm 2", price: "35.000.000đ", image: "./image/product2.jpg" },
+            { name: "Sản phẩm 3", price: "25.000.000đ", image: "./image/product3.jpg" },
+            { name: "Sản phẩm 4", price: "20.000.000đ", image: "./image/product4.jpg" },
+            { name: "Sản phẩm 5", price: "35.000.000đ", image: "./image/product5.jpg" },
+            { name: "Sản phẩm 6", price: "50.000.000đ", image: "./image/product6.jpg" }
+        ];
+
+        function loadProducts() {
+            const productList = document.getElementById("product-list");
+            products.forEach(product => {
+                const productCard = `
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text">Giá: ${product.price}</p>
+                                <button class="btn btn-primary">Mua ngay</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productList.innerHTML += productCard;
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", loadProducts);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
